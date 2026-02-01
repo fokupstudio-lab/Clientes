@@ -1,0 +1,578 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  text-decoration: none;
+
+}
+
+
+
+
+/* Classe que vais colocar em tudo o que queres que "revele" */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  /* Começa 30px abaixo */
+  transition: all 0.8s ease-out;
+  /* Transição suave de 0.8 segundos */
+  /* O título aparece logo */
+h2.reveal { transition-delay: 0.1s; }
+
+/* O parágrafo espera um pouco mais */
+p.reveal { transition-delay: 0.3s; }
+
+/* A lista de reviews espera ainda mais */
+.reviews-list.reveal { transition-delay: 0.5s; }
+
+/* O título aparece logo */
+h2.reveal {
+  transition-delay: 0.1s;
+}
+
+/* O parágrafo espera um pouco mais */
+p.reveal {
+  transition-delay: 0.3s;
+}
+
+/* A lista de reviews espera ainda mais */
+.reviews-list.reveal {
+  transition-delay: 0.5s;
+}
+}
+
+/* Classe que o JavaScript vai adicionar quando virmos o elemento */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  /* Volta à posição original */
+}
+
+
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #003366;
+}
+
+.logo {
+  width: 100px;
+}
+
+.logo :hover {
+  opacity: 70%;
+  transition: ease-out 300ms;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+header li :hover {
+  opacity: 70%;
+  transition: ease-out 300ms;
+}
+
+
+
+
+
+.hero {
+  width: 100%;
+  height: 88vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('/asset/img/grouppsm_banner_home.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+  display: flex;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 64px 50px 70px 50px;
+  position: relative;
+  width: 100%;
+
+}
+
+.hero-content h1 {
+  font-size: 7.5rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 20px;
+  padding-bottom: 50px;
+}
+
+.description-box {
+  display: flex;
+  justify-content: space-between
+}
+
+.subtitle {
+  font-size: 2rem;
+  color: #e0e0e0;
+  margin-bottom: 40px;
+}
+
+.subtitle1 {
+  max-width: 370px;
+  line-height: 1.5;
+  font-size: 1.063rem;
+  color: #e0e0e0;
+}
+
+
+
+
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  height: 110px;
+  overflow: hidden;
+  padding: 35px 0;
+  white-space: nowrap;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+.logos:hover .logo-slide {
+  animation-play-state: paused;
+}
+
+.logo-slide {
+  display: inline-block;
+  animation: 5s slide infinite linear;
+}
+
+.logo-slide img {
+  background-repeat: repeat-x;
+  height: 40px;
+  margin: 0 40px;
+}
+
+
+
+.Welcome-section {
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: #007ACC;
+  padding: 64px 152px;
+
+
+}
+
+.content {
+  max-width: 1050px;
+}
+
+.Welcome-article {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+
+}
+
+.content h2 {
+  font-size: 2rem;
+}
+
+.Welcome-article p {
+  margin: 2rem 0;
+  line-height: 1.6;
+}
+
+.saber-mais {
+  width: 138px;
+  height: 58px;
+  background-color: #000;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+}
+
+.saber-mais:hover {
+  background-color: white;
+}
+
+
+
+.img {
+  background-image: url(/asset/img/grouppsm_banner_home.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+  width: 100%;
+}
+
+
+
+
+.servicos {
+  display: flex;
+  justify-content: center;
+  background-color: #003366;
+  color: white;
+  padding: 64px 0;
+  align-items: center;
+}
+
+.conteudo {
+  display: flex;
+  justify-content: center;
+}
+
+.intro {
+  font-size: 2rem;
+  margin-right: 50px;
+}
+
+.conteudo ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.conteudo ul li {
+  line-height: 95%;
+  color: white;
+  font-size: 4.2rem;
+}
+
+.conteudo ul li:hover {
+  scale: 1.1;
+  transition: ease-out 300ms 0.1s;
+}
+
+.ver-mais2 {
+  color: #AAB8C2;
+  opacity: 50%;
+}
+
+.btn-servicos {
+  width: 117px;
+  height: 58px;
+  background-color: white;
+  color: black;
+  padding: 1.125rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+}
+
+
+
+.opiniao{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 64px 271px;
+
+}
+
+.articleopiniao{
+  width: 100%;
+  max-width: 1200px;
+}
+
+.conteudo2{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3.125rem;
+  align-items: center;
+}
+
+.conteudo2 h2{
+  font-size: 2rem;
+}
+
+.paragraf{
+  max-width: 478px;
+}
+
+.conteudo2 p{
+  font-size: 1.125;
+  
+}
+
+.reviews-list{
+  max-width: 738px;
+  padding: 30px 50px;
+  background-color: #f6f6f6;
+  margin: auto;
+}
+  
+.review{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  
+  
+}
+
+.reviews-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Estilo das Setas */
+.nav-arrow {
+  display: flex;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  transition: transform 0.2s;
+
+}
+
+.nav-arrow:hover {
+  transform: scale(1.2);
+}
+
+.nav-dots {
+  display: flex;
+  gap: 8px;
+}
+
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* O Ponto Ativo (o que muda de cor) */
+.dot.active {
+  background-color: #4a1d1d;
+}
+
+.texto{
+  font-weight: medium;
+  font-size: 2rem;
+}
+
+.autor{
+  font-size: 1.125rem;
+}
+
+
+
+
+
+.projetos{
+  padding: 64px 152px;
+}
+
+.content2{
+max-width: 976px;
+margin: auto;
+}
+
+.projetos h2{
+  margin-bottom: 30px; 
+}
+
+.projetos-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.projeto{
+  position: relative;
+  overflow: hidden;
+}
+
+.projeto img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tag{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  left: auto;
+  background: #003366;
+  color: white;
+  font-size: 0.75rem;
+  padding: 5px 10px;
+  z-index: 2;
+}
+
+.projeto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0));
+}
+
+.projeto h3{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .projetos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .projetos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+footer{
+  background-color: #aabcc6;
+  padding: 64px 152px;
+  color: black;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.footer-grid{
+  display: grid;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-grid a:hover{
+  text-decoration: underline;
+}
+
+.footer-logo {
+  width: 150px;
+  margin-bottom: 84px;
+}
+
+.footer-tagline {
+  font-size: 1.2rem;
+  width: 100%;
+  margin-bottom: 84px;
+}
+
+.footer-contacts {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 84px;
+}
+
+.footer-contact{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-link{
+  color: black;
+}
+
+.footer-address {
+  line-height: 1.5;
+  max-width: 255px;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-social a{
+  color: black;
+}
+
+.footer-copyright a {
+color: black;
+text-decoration: line-through;
+}
+
+
+.brand-name {
+      font-weight: bold;
+      font-size: 1rem;
+}
