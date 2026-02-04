@@ -16,7 +16,7 @@ if (logosContainer && originalSlide) {
 // 2. DEPOIS: Aplicamos o efeito de revelar (já vai incluir as cópias)
 // 1. Selecionamos automaticamente todas as secções e artigos
 // ... (teu código de clonagem de logos continua igual no topo)
-const elementosParaAnimar = document.querySelectorAll(' p, h1, h2, h3, .revela, button, .nav-dots, section');
+const elementosParaAnimar = document.querySelectorAll(' p, h1, h2, h3, .revela, button, .nav-dots, div, .img');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
