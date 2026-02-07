@@ -13,6 +13,17 @@ if (logosContainer && originalSlide) {
   logosContainer.appendChild(copy2);
 }
 
+
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav');
+
+toggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
+
+
+
+
 // 2. DEPOIS: Aplicamos o efeito de revelar (já vai incluir as cópias)
 // 1. Selecionamos automaticamente todas as secções e artigos
 // ... (teu código de clonagem de logos continua igual no topo)

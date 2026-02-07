@@ -16,30 +16,37 @@
   transform: translateY(30px);
   /* Começa 30px abaixo */
   transition: all 0.8s ease-out;
+
   /* Transição suave de 0.8 segundos */
   /* O título aparece logo */
-h2.reveal { transition-delay: 0.1s; }
+  h2.reveal {
+    transition-delay: 0.1s;
+  }
 
-/* O parágrafo espera um pouco mais */
-p.reveal { transition-delay: 0.3s; }
+  /* O parágrafo espera um pouco mais */
+  p.reveal {
+    transition-delay: 0.3s;
+  }
 
-/* A lista de reviews espera ainda mais */
-.reviews-list.reveal { transition-delay: 0.5s; }
+  /* A lista de reviews espera ainda mais */
+  .reviews-list.reveal {
+    transition-delay: 0.5s;
+  }
 
-/* O título aparece logo */
-h2.reveal {
-  transition-delay: 0.1s;
-}
+  /* O título aparece logo */
+  h2.reveal {
+    transition-delay: 0.1s;
+  }
 
-/* O parágrafo espera um pouco mais */
-p.reveal {
-  transition-delay: 0.3s;
-}
+  /* O parágrafo espera um pouco mais */
+  p.reveal {
+    transition-delay: 0.3s;
+  }
 
-/* A lista de reviews espera ainda mais */
-.reviews-list.reveal {
-  transition-delay: 0.5s;
-}
+  /* A lista de reviews espera ainda mais */
+  .reviews-list.reveal {
+    transition-delay: 0.5s;
+  }
 }
 
 /* Classe que o JavaScript vai adicionar quando virmos o elemento */
@@ -48,9 +55,6 @@ p.reveal {
   transform: translateY(0);
   /* Volta à posição original */
 }
-
-
-
 
 header {
   display: flex;
@@ -67,9 +71,10 @@ header {
 
 .logo {
   width: 100px;
+  z-index: 10;
 }
 
-.logo :hover {
+.logo:hover {
   opacity: 70%;
   transition: ease-out 300ms;
 }
@@ -88,10 +93,70 @@ header a {
   font-weight: 500;
 }
 
-header li :hover {
+header li:hover {
   opacity: 70%;
   transition: ease-out 300ms;
 }
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.menu-toggle:hover {
+  opacity: 70%;
+  transition: ease-out 300ms;
+}
+
+/* ===== MOBILE MENU ===== */
+@media (max-width: 600px) {
+
+  header {
+    height: 64px;
+  }
+
+  /* mostra o hamburguer */
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    display: flex;
+    position: fixed;
+    top: 64px;
+    /* ajusta se o header tiver outra altura */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #003366;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  /* quando abrir */
+  .nav.active {
+    transform: translateY(0);
+  }
+
+  /* lista vertical */
+  .nav ul {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  header a {
+    font-size: 60px;
+  }
+}
+
+/* _____________________________________________________ */
 
 
 
@@ -145,19 +210,28 @@ header li :hover {
   color: #e0e0e0;
 }
 
+@media (max-width: 1024px) {
 
-
-
-
-@keyframes slide {
-  from {
-    transform: translateX(0);
+  .hero-content h1 {
+    font-size: 72px;
   }
 
-  to {
-    transform: translateX(-100%);
+  .description-box {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
+
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 72px;
+  }
+
+}
+
+
+
+
 
 .logos {
   height: 110px;
@@ -204,6 +278,17 @@ header li :hover {
   margin: 0 40px;
 }
 
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
 
 
 .Welcome-section {
@@ -212,8 +297,6 @@ header li :hover {
   color: white;
   background-color: #007ACC;
   padding: 64px 152px;
-
-
 }
 
 .content {
@@ -225,7 +308,6 @@ header li :hover {
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin: 2rem 0;
-
 }
 
 .content h2 {
@@ -253,6 +335,30 @@ header li :hover {
 }
 
 
+@media (max-width: 1024px) {
+
+  .Welcome-section {
+    padding: 64px;
+  }
+}
+
+@media (max-width: 600px) {
+  .Welcome-section {
+    padding: 25px;
+  }
+
+  .Welcome-article {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0;
+  }
+
+  .Welcome-article p {
+    margin: 1rem 0;
+  }
+}
+
+
+
 
 .img {
   background-image: url(/asset/img/img2.jpeg);
@@ -278,6 +384,7 @@ header li :hover {
 .conteudo {
   display: flex;
   justify-content: center;
+  font-size: clamp(1.5rem, 5vw, 4.2rem);
 }
 
 .intro {
@@ -298,7 +405,7 @@ header li :hover {
 }
 
 .conteudo ul li:hover {
-  scale: 1.1;
+  scale: 1.05;
   transition: ease-out 300ms 0.1s;
 }
 
@@ -318,9 +425,55 @@ header li :hover {
   border: none;
 }
 
+@media (max-width: 1024px) {
+
+  .servicos {
+    padding: 64px;
+  }
+
+  .conteudo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .intro {
+    font-size: 32px;
+    margin-bottom: 48px;
+  }
+
+  .conteudo ul li {
+    font-size: 64px;
+  }
+}
+
+@media (max-width: 600px) {
+  .servicos {
+    padding: 25px;
+  }
+
+  .conteudo {
+    padding: 0 25px;
+  }
+
+  .intro {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .conteudo ul li {
+    font-size: 36px;
+  }
+}
 
 
-.opiniao{
+
+
+
+
+
+
+
+.opiniao {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -330,12 +483,12 @@ header li :hover {
 
 }
 
-.articleopiniao{
+.articleopiniao {
   width: 100%;
   max-width: 1200px;
 }
 
-.conteudo2{
+.conteudo2 {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -343,32 +496,32 @@ header li :hover {
   align-items: center;
 }
 
-.conteudo2 h2{
+.conteudo2 h2 {
   font-size: 2rem;
 }
 
-.paragraf{
+.paragraf {
   max-width: 478px;
 }
 
-.conteudo2 p{
+.conteudo2 p {
   font-size: 1.125;
-  
+
 }
 
-.reviews-list{
+.reviews-list {
   max-width: 738px;
   padding: 30px 50px;
   background-color: #f6f6f6;
   margin: auto;
 }
-  
-.review{
+
+.review {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  
-  
+
+
 }
 
 .reviews-navigation {
@@ -415,51 +568,63 @@ header li :hover {
   background-color: #4a1d1d;
 }
 
-.texto{
+.texto {
   font-weight: medium;
   font-size: 2rem;
 }
 
-.autor{
+.autor {
   font-size: 1.125rem;
 }
 
 
+@media (max-width: 1024px) {
+  .opiniao {
+    padding: 64px;
+  }
+}
+
+@media (max-width: 600px) {
+  .opiniao {
+    padding: 25px;
+  }
+}
 
 
 
-.projetos{
+
+.projetos {
   padding: 64px 152px;
 }
 
-.content2{
-max-width: 976px;
-margin: auto;
+.content2 {
+  max-width: 976px;
+  margin: auto;
 }
 
-.projetos h2{
-  margin-bottom: 30px; 
+.projetos h2 {
+  margin-bottom: 30px;
 }
 
-.projetos-grid{
+.projetos-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 }
 
-.projeto{
+.projeto {
   position: relative;
   overflow: hidden;
 }
 
-.projeto img{
+.projeto img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.tag{
+.tag {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -480,7 +645,7 @@ margin: auto;
       rgba(0, 0, 0, 0));
 }
 
-.projeto h3{
+.projeto h3 {
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -508,20 +673,26 @@ margin: auto;
 
 
 
-footer{
+
+
+
+
+
+/* _____________________________________________________ */
+footer {
   background-color: #aabcc6;
   padding: 64px 152px;
   color: black;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.footer-grid{
+.footer-grid {
   display: grid;
   max-width: 1200px;
   margin: auto;
 }
 
-.footer-grid a:hover{
+.footer-grid a:hover {
   text-decoration: underline;
 }
 
@@ -542,13 +713,13 @@ footer{
   margin-bottom: 84px;
 }
 
-.footer-contact{
+.footer-contact {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.footer-link{
+.footer-link {
   color: black;
 }
 
@@ -563,17 +734,45 @@ footer{
   gap: 10px;
 }
 
-.footer-social a{
+.footer-social a {
   color: black;
 }
 
+.footer-copyright{
+color: rgba(0, 0, 0, 0.5);
+}
 .footer-copyright a {
-color: black;
-text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: line-through;
+  font-weight: bold;
 }
 
 
 .brand-name {
-      font-weight: bold;
-      font-size: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+   footer{
+    padding: 64px 24px 20px 24px;
+   }
+
+  .footer-contacts {
+    margin-bottom: 0;
+  }
+
+  .footer-copyright {
+    padding: 50px 0px;
+  }
+
+  .footer-tagline {
+    margin-bottom:50px;
+  }
+
+  .footer-contacts {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+  }
 }
